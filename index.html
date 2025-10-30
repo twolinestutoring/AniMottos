@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniMottos - Discover Your Inner Animal</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #BFC9CA;
+            min-height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navigation {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-family: 'Carter One', cursive;
+            color: #4BA3C3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            background: #4BA3C3;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: #5a9bb3;
+        }
+
+        .nav-link.active {
+            background: #FFD66B;
+            color: #333;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #4BA3C3 0%, #8ABF5A 100%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-family: 'Carter One', cursive;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: #FFD66B;
+            color: #333;
+        }
+
+        .cta-secondary {
+            background: #BFC9CA;
+            color: #333;
+        }
+
+        .cta-tertiary {
+            background: #4BA3C3;
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .animal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .animal-emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .animal-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .animal-trait {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-family: 'Carter One', cursive;
+            color: #4BA3C3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .journey-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .journey-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            background: #4BA3C3;
+            color: white;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .journey-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #4BA3C3;
+        }
+
+        .journey-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .merch-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .merch-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .merch-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .merch-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .merch-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .quiz-preview {
+            background: #8ABF5A;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-size: 24px;
+            font-family: 'Carter One', cursive;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .quiz-option {
+            padding: 15px 20px;
+            background: white;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .quiz-option:hover {
+            border-color: #4BA3C3;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #4BA3C3;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 25px;
+            margin-top: 40px;
+        }
+
+        .footer-message {
+            font-size: 24px;
+            font-family: 'Carter One', cursive;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .journey-steps {
+                flex-direction: column;
+            }
+            
+            .journey-step::after {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container"><!-- Navigation -->
+   <nav class="navigation">
+    <div class="logo">
+     🦦 <span id="site-title">AniMottos</span>
+    </div>
+    <div class="nav-links"><button class="nav-link active" onclick="showPage('home')">🏠 Home</button> <button class="nav-link" onclick="showPage('about')">🧭 About</button> <button class="nav-link" onclick="showPage('workbook')">📖 Workbook</button> <button class="nav-link" onclick="showPage('quiz')">🧩 Quiz</button> <button class="nav-link" onclick="showPage('shop')">👕 Shop</button>
+    </div>
+   </nav><!-- Home Page -->
+   <div id="home" class="page-section active">
+    <div class="hero-banner">
+     <h1 class="hero-title" id="hero-tagline">Discover Your Inner Animal!</h1>
+     <p class="hero-subtitle">Find your character, embrace your values, and wear your motto with pride</p>
+     <div class="cta-buttons"><button class="cta-button cta-primary" id="cta-quiz" onclick="showPage('quiz')">Take the Quiz</button> <button class="cta-button cta-secondary" id="cta-workbook" onclick="showPage('workbook')">Explore the Workbook</button> <button class="cta-button cta-tertiary" id="cta-shop" onclick="showPage('shop')">Shop Merch</button>
+     </div>
+    </div>
+    <div class="section-card">
+     <h2 class="section-title">Your Journey Awaits</h2>
+     <div class="journey-steps">
+      <div class="journey-step">
+       <div class="step-number">
+        1
+       </div>
+       <h3>Take Quiz</h3>
+       <p>Answer fun questions to discover your spirit animal</p>
+      </div>
+      <div class="journey-step">
+       <div class="step-number">
+        2
+       </div>
+       <h3>Get Motto</h3>
+       <p>Receive your personalized character motto</p>
+      </div>
+      <div class="journey-step">
+       <div class="step-number">
+        3
+       </div>
+       <h3>Use Workbook</h3>
+       <p>Grow your character with weekly activities</p>
+      </div>
+      <div class="journey-step">
+       <div class="step-number">
+        4
+       </div>
+       <h3>Wear It</h3>
+       <p>Express yourself with custom merchandise</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- About Page -->
+   <div id="about" class="page-section">
+    <div class="section-card">
+     <h2 class="section-title">Our Mission</h2>
+     <p class="section-subtitle">Helping young people discover their values, build character, and express their authentic selves through the wisdom of the animal kingdom.</p>
+     <h3 style="text-align: center; margin: 40px 0 20px; color: #4BA3C3; font-family: 'Carter One', cursive;">How It Works</h3>
+     <div class="journey-steps">
+      <div class="journey-step">
+       <div class="step-number">
+        🧩
+       </div>
+       <h4>Interactive Quiz</h4>
+       <p>Thoughtful questions reveal your inner animal</p>
+      </div>
+      <div class="journey-step">
+       <div class="step-number">
+        👕
+       </div>
+       <h4>Personal Expression</h4>
+       <p>Wear your motto and share your journey</p>
+      </div>
+      <div class="journey-step">
+       <div class="step-number">
+        📖
+       </div>
+       <h4>Character Workbook</h4>
+       <p>Weekly activities to develop your values</p>
+      </div>
+     </div>
+    </div>
+    <div class="section-card">
+     <h2 class="section-title">Meet the Animals</h2>
+     <p class="section-subtitle">14 amazing animals, each representing unique character traits and values</p>
+     <div class="animal-grid">
+      <div class="animal-card"><span class="animal-emoji">🦦</span>
+       <div class="animal-name">
+        Otter
+       </div>
+       <div class="animal-trait">
+        Curiosity
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦎</span>
+       <div class="animal-name">
+        Chameleon
+       </div>
+       <div class="animal-trait">
+        Creativity
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐿️</span>
+       <div class="animal-name">
+        Squirrel
+       </div>
+       <div class="animal-trait">
+        Responsibility
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦁</span>
+       <div class="animal-name">
+        Lion
+       </div>
+       <div class="animal-trait">
+        Courage
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦅</span>
+       <div class="animal-name">
+        Eagle
+       </div>
+       <div class="animal-trait">
+        Honesty
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐻</span>
+       <div class="animal-name">
+        Bear
+       </div>
+       <div class="animal-trait">
+        Integrity
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐢</span>
+       <div class="animal-name">
+        Turtle
+       </div>
+       <div class="animal-trait">
+        Perseverance
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐬</span>
+       <div class="animal-name">
+        Dolphin
+       </div>
+       <div class="animal-trait">
+        Kindness
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐘</span>
+       <div class="animal-name">
+        Elephant
+       </div>
+       <div class="animal-trait">
+        Empathy
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐺</span>
+       <div class="animal-name">
+        Wolf
+       </div>
+       <div class="animal-trait">
+        Teamwork
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦢</span>
+       <div class="animal-name">
+        Swan
+       </div>
+       <div class="animal-trait">
+        Respect
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🐼</span>
+       <div class="animal-name">
+        Panda
+       </div>
+       <div class="animal-trait">
+        Gratitude
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦊</span>
+       <div class="animal-name">
+        Fox
+       </div>
+       <div class="animal-trait">
+        Joy
+       </div>
+      </div>
+      <div class="animal-card"><span class="animal-emoji">🦉</span>
+       <div class="animal-name">
+        Owl
+       </div>
+       <div class="animal-trait">
+        Reflection
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Workbook Page -->
+   <div id="workbook" class="page-section">
+    <div class="section-card">
+     <h2 class="section-title">Character Development Workbook</h2>
+     <p class="section-subtitle">Grow Your Character, One Week at a Time</p>
+     <div style="background: #A9957B; border-radius: 20px; padding: 40px; text-align: center; margin: 30px 0; color: white;">
+      <h3 style="font-size: 28px; font-family: 'Carter One', cursive; margin-bottom: 20px; color: white;">📚 Student Workbook Preview</h3>
+      <p style="font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 30px;">18 weeks of character-building activities, one for each animal</p>
+      <div class="animal-grid" style="max-width: 800px; margin: 0 auto;">
+       <div class="animal-card"><span class="animal-emoji">🦦</span>
+        <div class="animal-name">
+         Week 1: Curiosity
+        </div>
+        <div class="animal-trait">
+         Otter Adventures
+        </div>
+       </div>
+       <div class="animal-card"><span class="animal-emoji">🐬</span>
+        <div class="animal-name">
+         Week 2: Kindness
+        </div>
+        <div class="animal-trait">
+         Dolphin Care
+        </div>
+       </div>
+       <div class="animal-card"><span class="animal-emoji">🦁</span>
+        <div class="animal-name">
+         Week 3: Courage
+        </div>
+        <div class="animal-trait">
+         Lion's Heart
+        </div>
+       </div>
+       <div class="animal-card"><span class="animal-emoji">🦢</span>
+        <div class="animal-name">
+         Week 4: Respect
+        </div>
+        <div class="animal-trait">
+         Swan Grace
+        </div>
+       </div>
+       <div class="animal-card"><span class="animal-emoji">🐿️</span>
+        <div class="animal-name">
+         Week 5: Responsibility
+        </div>
+        <div class="animal-trait">
+         Squirrel Planning
+        </div>
+       </div>
+       <div class="animal-card"><span class="animal-emoji">🦎</span>
+        <div class="animal-name">
+         Week 6: Creativity
+        </div>
+        <div class="animal-trait">
+         Chameleon Arts
+        </div>
+       </div>
+      </div>
+     </div>
+     <div style="text-align: center; margin: 30px 0;"><button class="cta-button cta-primary" style="font-size: 20px; padding: 20px 40px;">Download Sample Pages</button>
+     </div>
+    </div>
+   </div><!-- Quiz Page -->
+   <div id="quiz" class="page-section">
+    <div class="section-card">
+     <h2 class="section-title">Start Your AniMottos Journey</h2>
+     <p class="section-subtitle">Answer these fun questions to discover your spirit animal and personal motto</p>
+    </div>
+    <div class="quiz-preview">
+     <div class="quiz-question">
+      🌟 What motivates you most in life?
+     </div>
+     <div class="quiz-options">
+      <div class="quiz-option" onclick="selectQuizOption(this)">
+       🎨 Creating something beautiful and unique
+      </div>
+      <div class="quiz-option" onclick="selectQuizOption(this)">
+       🤝 Helping others and building community
+      </div>
+      <div class="quiz-option" onclick="selectQuizOption(this)">
+       🔍 Learning new things and exploring
+      </div>
+      <div class="quiz-option" onclick="selectQuizOption(this)">
+       🏆 Achieving goals and leading others
+      </div>
+     </div>
+    </div>
+    <div class="section-card" style="text-align: center;">
+     <h3 style="color: #4BA3C3; font-family: 'Carter One', cursive; margin-bottom: 20px;">Sample Result Preview</h3>
+     <div style="background: #FFD66B; border-radius: 20px; padding: 30px; max-width: 500px; margin: 0 auto;">
+      <div style="font-size: 80px; margin-bottom: 20px;">
+       🦦
+      </div>
+      <h3 style="font-size: 24px; font-family: 'Carter One', cursive; color: #333; margin-bottom: 15px;">You are the Curious Otter!</h3>
+      <p style="font-size: 18px; font-weight: 600; color: #333; margin-bottom: 20px;">"Every day brings new discoveries"</p>
+      <div style="background: white; border-radius: 15px; padding: 20px; margin-top: 20px;">
+       <p style="color: #666; margin: 0;">Your traits: Curiosity, playfulness, adaptability, and joyful exploration</p>
+      </div>
+     </div><button class="cta-button cta-primary" style="margin-top: 30px; font-size: 18px;">Take Full Quiz</button>
+    </div>
+   </div><!-- Shop Page -->
+   <div id="shop" class="page-section">
+    <div class="section-card">
+     <h2 class="section-title">Wear Your Character on Your Sleeve!</h2>
+     <p class="section-subtitle">Express your values and share your motto with custom merchandise</p>
+     <div class="merch-grid">
+      <div class="merch-item"><span class="merch-icon">👕</span>
+       <div class="merch-name">
+        Custom T-Shirts
+       </div>
+       <div class="merch-description">
+        Your animal and motto on premium tees
+       </div>
+      </div>
+      <div class="merch-item"><span class="merch-icon">📓</span>
+       <div class="merch-name">
+        Character Journals
+       </div>
+       <div class="merch-description">
+        Personalized notebooks for reflection
+       </div>
+      </div>
+      <div class="merch-item"><span class="merch-icon">🍶</span>
+       <div class="merch-name">
+        Water Bottles
+       </div>
+       <div class="merch-description">
+        Stay hydrated with your motto
+       </div>
+      </div>
+      <div class="merch-item"><span class="merch-icon">🏷️</span>
+       <div class="merch-name">
+        Sticker Packs
+       </div>
+       <div class="merch-description">
+        Share your animal everywhere
+       </div>
+      </div>
+      <div class="merch-item"><span class="merch-icon">🎒</span>
+       <div class="merch-name">
+        Backpacks
+       </div>
+       <div class="merch-description">
+        Carry your character with you
+       </div>
+      </div>
+      <div class="merch-item"><span class="merch-icon">📋</span>
+       <div class="merch-name">
+        Printable Posters
+       </div>
+       <div class="merch-description">
+        "My Motto in Action" wall art
+       </div>
+      </div>
+     </div>
+     <div style="text-align: center; margin: 40px 0;"><button class="cta-button cta-primary" style="font-size: 20px; padding: 20px 40px;">Browse All Products</button>
+     </div>
+    </div>
+   </div><!-- Footer -->
+   <footer class="footer">
+    <div class="footer-message" id="footer-message">
+     Stay Curious. Be Kind. Shine Bright!
+    </div>
+    <p>Connect with the AniMottos community and share your character journey</p>
+    <div class="social-links"><a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📘</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📷</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">🐦</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📺</a>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // Configuration object
+        const defaultConfig = {
+            site_title: "AniMottos",
+            hero_tagline: "Discover Your Inner Animal!",
+            cta_quiz: "Take the Quiz",
+            cta_workbook: "Explore the Workbook",
+            cta_shop: "Shop Merch"
+        };
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Quiz interaction
+        function selectQuizOption(option) {
+            // Remove previous selections
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.style.borderColor = 'transparent');
+            
+            // Highlight selected option
+            option.style.borderColor = '#4BA3C3';
+            option.style.backgroundColor = '#f0f8ff';
+            
+            // Show next question after delay
+            setTimeout(() => {
+                option.style.backgroundColor = 'white';
+                showQuizResult();
+            }, 1000);
+        }
+
+        function showQuizResult() {
+            const animals = ['🦊', '🦅', '🐺', '🦦', '🦋', '🐢'];
+            const names = ['Clever Fox', 'Soaring Eagle', 'Loyal Wolf', 'Curious Otter', 'Transforming Butterfly', 'Patient Turtle'];
+            const mottos = [
+                'Smart choices lead to bright futures',
+                'Rise above and see the bigger picture',
+                'Together we are stronger',
+                'Every day brings new discoveries',
+                'Change is the path to growth',
+                'Slow and steady wins the race'
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * animals.length);
+            
+            // Create result display
+            const resultHTML = `
+                <div style="background: #FFD66B; border-radius: 20px; padding: 30px; text-align: center; margin: 20px 0;">
+                    <div style="font-size: 80px; margin-bottom: 20px;">${animals[randomIndex]}</div>
+                    <h3 style="font-size: 24px; font-family: 'Carter One', cursive; color: #333; margin-bottom: 15px;">You are the ${names[randomIndex]}!</h3>
+                    <p style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 20px;">"${mottos[randomIndex]}"</p>
+                    <button class="cta-button cta-primary" onclick="showPage('workbook')">Explore Your Workbook</button>
+                </div>
+            `;
+            
+            document.querySelector('.quiz-preview').innerHTML = resultHTML;
+        }
+
+        // Element SDK implementation
+        async function onConfigChange(config) {
+            // Update site title
+            const titleElement = document.getElementById('site-title');
+            if (titleElement) {
+                titleElement.textContent = config.site_title || defaultConfig.site_title;
+            }
+
+            // Update hero tagline
+            const taglineElement = document.getElementById('hero-tagline');
+            if (taglineElement) {
+                taglineElement.textContent = config.hero_tagline || defaultConfig.hero_tagline;
+            }
+
+            // Update CTA buttons
+            const quizButton = document.getElementById('cta-quiz');
+            if (quizButton) {
+                quizButton.textContent = config.cta_quiz || defaultConfig.cta_quiz;
+            }
+
+            const workbookButton = document.getElementById('cta-workbook');
+            if (workbookButton) {
+                workbookButton.textContent = config.cta_workbook || defaultConfig.cta_workbook;
+            }
+
+            const shopButton = document.getElementById('cta-shop');
+            if (shopButton) {
+                shopButton.textContent = config.cta_shop || defaultConfig.cta_shop;
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["site_title", config.site_title || defaultConfig.site_title],
+                ["hero_tagline", config.hero_tagline || defaultConfig.hero_tagline],
+                ["cta_quiz", config.cta_quiz || defaultConfig.cta_quiz],
+                ["cta_workbook", config.cta_workbook || defaultConfig.cta_workbook],
+                ["cta_shop", config.cta_shop || defaultConfig.cta_shop]
+            ]);
+        }
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996c489696525a87',t:'MTc2MTg0MTY4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
