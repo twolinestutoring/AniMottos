@@ -452,16 +452,37 @@ body {
     }
 
     .animal-img {
-        width: 100%;
-        height: 120px;
-        object-fit: contain;
-        margin-bottom: 10px;
-        transition: transform 0.3s ease;
-    }
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  display: block;
+  transition: transform 0.3s ease;
+}
 
-    .animal-card:hover .animal-img {
-        transform: scale(1.05);
-    }
+.animal-card:hover .animal-img {
+  transform: scale(1.05);
+}
+
+/* Adjust animal image size by screen */
+@media (min-width: 900px) {
+  .animal-img {
+    max-width: 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .animal-img {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .animal-img {
+    max-width: 150px;
+  }
+}
 
 
 }
