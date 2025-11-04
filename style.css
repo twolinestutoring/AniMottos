@@ -452,37 +452,59 @@ body {
     }
 
     .animal-img {
-  width: 100%;
-  max-width: 140px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto 10px;
-  display: block;
-  transition: transform 0.3s ease;
-}
+        width: 100%;
+        height: auto;
+        max-width: 120px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 10px;
+        transition: transform 0.3s ease;
+    }
 
-.animal-card:hover .animal-img {
-  transform: scale(1.05);
-}
+    .animal-card:hover .animal-img {
+        transform: scale(1.05);
+    }
 
-/* Adjust animal image size by screen */
-@media (min-width: 900px) {
-  .animal-img {
-    max-width: 120px;
-  }
-}
+    .animal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+    }
 
-@media (min-width: 1200px) {
-  .animal-img {
-    max-width: 100px;
-  }
-}
+    .animal-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        padding: 15px 10px;
+        text-align: center;
+        max-width: 200px;
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-@media (max-width: 600px) {
-  .animal-img {
-    max-width: 150px;
-  }
-}
+    .animal-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    @media (max-width: 768px) {
+        .animal-card {
+            max-width: 160px;
+        }
+
+        .animal-img {
+            max-width: 140px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .animal-card {
+            max-width: 180px;
+        }
+    }
 
 
 }
