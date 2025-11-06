@@ -1,231 +1,168 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz | AniMottos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | AniMottos</title>
 
-    <!-- Favicon & Brand Meta -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+  <!-- Favicon & Brand Meta -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- Theme Colors for Browsers -->
-    <meta name="theme-color" content="#4BA3C3">
-    <meta name="msapplication-TileColor" content="#4BA3C3">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Theme Colors for Browsers -->
+  <meta name="theme-color" content="#4BA3C3">
+  <meta name="msapplication-TileColor" content="#4BA3C3">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Social / Search Preview -->
-    <meta property="og:title" content="AniMottos – Wear Your Character on Your Sleeve">
-    <meta property="og:description"
-        content="Discover your inner animal, embrace your values, and wear your motto with pride.">
-    <meta property="og:image" content="favicon.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com/">
+  <!-- Social / Search Preview -->
+  <meta property="og:title" content="AniMottos – Wear Your Character on Your Sleeve">
+  <meta property="og:description" content="Discover your inner animal, embrace your values, and wear your motto with pride.">
+  <meta property="og:image" content="favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Shared Styles -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
 
-        <!-- Navigation -->
-        <nav class="navigation">
-            <div class="logo"><i class="fa-solid fa-otter"></i> <span id="site-title">AniMottos</span></div>
-            <div class="nav-links">
-                <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-                <a class="nav-link" href="about.html"><i class="fa-solid fa-compass"></i> About</a>
-                <a class="nav-link" href="workbook.html"><i class="fa-solid fa-book-open"></i> Workbook</a>
-                <a class="nav-link active" href="quiz.html"><i class="fa-solid fa-puzzle-piece"></i> Quiz</a>
-                <a class="nav-link" href="shop.html"><i class="fa-solid fa-tshirt"></i> Shop</a>
-            </div>
-        </nav>
-
-        <!-- Quiz Intro Section -->
-        <div class="section-card">
-            <h2 class="section-title">Start Your AniMottos Journey</h2>
-            <p class="section-subtitle">
-                Answer these fun questions to discover your spirit animal and personal motto!
-            </p>
-        </div>
-
-        <!-- Quiz Preview Section -->
-        <div class="quiz-preview">
-            <div class="quiz-question">
-                🌟 What motivates you most in life?
-            </div>
-
-            <div class="quiz-options">
-                <div class="quiz-option" onclick="selectQuizOption(this)">
-                    🎨 Creating something beautiful and unique
-                </div>
-                <div class="quiz-option" onclick="selectQuizOption(this)">
-                    🤝 Helping others and building community
-                </div>
-                <div class="quiz-option" onclick="selectQuizOption(this)">
-                    🔍 Learning new things and exploring
-                </div>
-                <div class="quiz-option" onclick="selectQuizOption(this)">
-                    🏆 Achieving goals and leading others
-                </div>
-            </div>
-        </div>
-
-        <!-- Result Preview -->
-        <div class="section-card" style="text-align: center;">
-            <h3 style="color: #4BA3C3; font-family: 'Carter One', cursive; margin-bottom: 20px;">
-                Sample Result Preview
-            </h3>
-
-            <div style="background: #FFD66B; border-radius: 20px; padding: 30px; max-width: 500px; margin: 0 auto;">
-                <div style="font-size: 80px; margin-bottom: 20px;">🦦</div>
-                <h3 style="font-size: 24px; font-family: 'Carter One', cursive; color: #333; margin-bottom: 15px;">
-                    You are the Curious Otter!
-                </h3>
-                <p style="font-size: 18px; font-weight: 600; color: #333; margin-bottom: 20px;">
-                    "Every day brings new discoveries"
-                </p>
-                <div style="background: white; border-radius: 15px; padding: 20px; margin-top: 20px;">
-                    <p style="color: #666; margin: 0;">
-                        Your traits: Curiosity, playfulness, adaptability, and joyful exploration
-                    </p>
-                </div>
-            </div>
-
-            <a class="cta-button cta-primary" style="margin-top: 30px; font-size: 18px;" href="#">
-                <i class="fa-solid fa-play"></i> Take Full Quiz
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-message">Stay Curious. Be Kind. Shine Bright!</div>
-            <p>Connect with the AniMottos community and share your character journey</p>
-
-            <div class="social-links">
-                <a href="#" class="social-link" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-link" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link" target="_blank" aria-label="Twitter / X">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="#" class="social-link" target="_blank" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Simple Local Quiz JS -->
-    <script>
-        // Quiz interaction
-        function selectQuizOption(option) {
-            // Remove previous selections
-            const options = document.querySelectorAll('.quiz-option');
-            options.forEach(opt => {
-                opt.style.borderColor = 'transparent';
-                opt.style.backgroundColor = 'white';
-            });
-
-            // Highlight selected option
-            option.style.borderColor = '#4BA3C3';
-            option.style.backgroundColor = '#f0f8ff';
-
-            // Show result after short delay
-            setTimeout(showQuizResult, 600);
-        }
-
-        function showQuizResult() {
-            const animals = [
-                {
-                    emoji: '🦦',
-                    name: 'Curious Otter',
-                    motto: 'Every day brings new discoveries',
-                    traits: 'Curiosity • Playfulness • Adaptability'
-                },
-                {
-                    emoji: '🦁',
-                    name: 'Brave Lion',
-                    motto: 'Courage lights the path forward',
-                    traits: 'Courage • Confidence • Leadership'
-                },
-                {
-                    emoji: '🐢',
-                    name: 'Patient Turtle',
-                    motto: 'Slow and steady wins the race',
-                    traits: 'Patience • Perseverance • Focus'
-                },
-                {
-                    emoji: '🦉',
-                    name: 'Wise Owl',
-                    motto: 'Reflection brings wisdom',
-                    traits: 'Wisdom • Reflection • Understanding'
-                },
-                {
-                    emoji: '🐿️',
-                    name: 'Responsible Squirrel',
-                    motto: 'Prepare today for tomorrow’s success',
-                    traits: 'Responsibility • Diligence • Foresight'
-                },
-                {
-                    emoji: '🐬',
-                    name: 'Kind Dolphin',
-                    motto: 'Small acts make big waves',
-                    traits: 'Kindness • Empathy • Friendship'
-                }
-            ];
-
-            // Pick a random one
-            const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-
-            // Build result HTML
-            const resultHTML = `
-    <div style="background: #FFD66B; border-radius: 20px; padding: 30px; text-align: center; margin: 20px 0;">
-      <div style="font-size: 80px; margin-bottom: 20px;">${randomAnimal.emoji}</div>
-      <h3 style="font-size: 24px; font-family: 'Carter One', cursive; color: #333; margin-bottom: 10px;">
-        You are the ${randomAnimal.name}!
-      </h3>
-      <p style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 15px;">
-        "${randomAnimal.motto}"
-      </p>
-      <div style="background: white; border-radius: 15px; padding: 15px; margin-top: 15px;">
-        <p style="color: #666; margin: 0;">${randomAnimal.traits}</p>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="logo"><i class="fa-solid fa-otter"></i> <span id="site-title">AniMottos</span></div>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="nav-link" href="about.html"><i class="fa-solid fa-compass"></i> About</a>
+        <a class="nav-link" href="workbook.html"><i class="fa-solid fa-book-open"></i> Workbook</a>
+        <a class="nav-link active" href="quiz.html"><i class="fa-solid fa-puzzle-piece"></i> Quiz</a>
+        <a class="nav-link" href="shop.html"><i class="fa-solid fa-shirt"></i> Shop</a>
       </div>
-      <button class="cta-button cta-primary" style="margin-top: 20px;" onclick="loadSampleQuestion()">
-        Try Another
-      </button>
+    </nav>
+
+    <!-- Quiz Intro -->
+    <div class="section-card">
+      <h2 class="section-title">Start Your AniMottos Journey</h2>
+      <p class="section-subtitle">
+        Answer these fun questions to discover your spirit animal and personal motto!
+      </p>
     </div>
-  `;
 
-            document.querySelector('.quiz-preview').innerHTML = resultHTML;
-        }
+    <!-- Dynamic Quiz Container -->
+    <div class="quiz-preview"></div>
 
-        function loadSampleQuestion() {
-            document.querySelector('.quiz-preview').innerHTML = `
-    <div class="quiz-question">🌟 What motivates you most in life?</div>
-    <div class="quiz-options">
-      <div class="quiz-option" onclick="selectQuizOption(this)">🎨 Creating something beautiful and unique</div>
-      <div class="quiz-option" onclick="selectQuizOption(this)">🤝 Helping others and building community</div>
-      <div class="quiz-option" onclick="selectQuizOption(this)">🔍 Learning new things and exploring</div>
-      <div class="quiz-option" onclick="selectQuizOption(this)">🏆 Achieving goals and leading others</div>
-    </div>
-  `;
-        }
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-message">Stay Curious. Be Kind. Shine Bright!</div>
+      <p>Connect with the AniMottos community and share your character journey</p>
+      <div class="social-links">
+        <a href="#" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" target="_blank" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" class="social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
+  </div>
 
-        // Load the sample quiz on page load
-        window.addEventListener('DOMContentLoaded', loadSampleQuestion);
-    </script>
+  <!-- 4-Question Mini Quiz JS -->
+  <script>
+  const quizQuestions = [
+    {
+      question: "When you have free time, what do you like to do?",
+      options: [
+        { text: "🎨 Create something new", animal: "Chameleon", value: "Creativity", emoji: "🦎", motto: "Blend, adapt, and create your world" },
+        { text: "🤝 Help a friend or sibling", animal: "Dolphin", value: "Kindness", emoji: "🐬", motto: "Small acts make big waves" },
+        { text: "🔍 Explore or learn something new", animal: "Otter", value: "Curiosity", emoji: "🦦", motto: "Every day brings new discoveries" },
+        { text: "🏆 Try something challenging or brave", animal: "Lion", value: "Courage", emoji: "🦁", motto: "Courage lights the path forward" }
+      ]
+    },
+    {
+      question: "What’s your favorite way to solve a problem?",
+      options: [
+        { text: "🧠 Think it through carefully", animal: "Owl", value: "Reflection", emoji: "🦉", motto: "Wisdom grows in quiet moments" },
+        { text: "🎨 Come up with creative ideas", animal: "Chameleon", value: "Creativity", emoji: "🦎", motto: "Blend, adapt, and create your world" },
+        { text: "🗣️ Talk with others and share ideas", animal: "Wolf", value: "Teamwork", emoji: "🐺", motto: "Together we are stronger" },
+        { text: "💪 Keep trying until I get it", animal: "Turtle", value: "Perseverance", emoji: "🐢", motto: "Slow and steady wins the race" }
+      ]
+    },
+    {
+      question: "Your teacher says a big project is due next week. You...",
+      options: [
+        { text: "🗓️ Make a plan and get started early", animal: "Squirrel", value: "Responsibility", emoji: "🐿️", motto: "Prepare today for tomorrow’s success" },
+        { text: "🎯 Wait until I feel inspired", animal: "Chameleon", value: "Creativity", emoji: "🦎", motto: "Blend, adapt, and create your world" },
+        { text: "🙌 Ask a friend for help", animal: "Wolf", value: "Teamwork", emoji: "🐺", motto: "Together we are stronger" },
+        { text: "😌 Stay calm and take my time", animal: "Turtle", value: "Perseverance", emoji: "🐢", motto: "Slow and steady wins the race" }
+      ]
+    },
+    {
+      question: "Which phrase sounds most like you?",
+      options: [
+        { text: "💭 I love to imagine new things", animal: "Chameleon", value: "Creativity", emoji: "🦎", motto: "Blend, adapt, and create your world" },
+        { text: "💖 I care deeply about others", animal: "Dolphin", value: "Kindness", emoji: "🐬", motto: "Small acts make big waves" },
+        { text: "🦦 I’m curious about how things work", animal: "Otter", value: "Curiosity", emoji: "🦦", motto: "Every day brings new discoveries" },
+        { text: "🦁 I’m brave when things get tough", animal: "Lion", value: "Courage", emoji: "🦁", motto: "Courage lights the path forward" }
+      ]
+    }
+  ];
+
+  let currentQuestion = 0;
+
+  function loadQuestion() {
+    const q = quizQuestions[currentQuestion];
+    const container = document.querySelector('.quiz-preview');
+
+    container.innerHTML = `
+      <div class="quiz-question">${q.question}</div>
+      <div class="quiz-options">
+        ${q.options.map(o => `
+          <div class="quiz-option" onclick="showQuizResult('${o.animal}', '${o.value}', '${o.emoji}', '${o.motto}')">${o.text}</div>
+        `).join('')}
+      </div>
+      <div style="margin-top:20px;">Question ${currentQuestion + 1} of ${quizQuestions.length}</div>
+    `;
+  }
+
+  function showQuizResult(animal, value, emoji, motto) {
+    const container = document.querySelector('.quiz-preview');
+    container.innerHTML = `
+      <div style="background:#FFD66B;border-radius:20px;padding:30px;text-align:center;margin:20px 0;">
+        <div style="font-size:80px;margin-bottom:20px;">${emoji}</div>
+        <h3 style="font-size:24px;font-family:'Carter One',cursive;color:#333;">You are ${value.toLowerCase()} like a ${animal}!</h3>
+        <p style="font-size:18px;font-weight:bold;color:#333;margin-bottom:15px;">"${motto}"</p>
+        <button class="cta-button cta-primary" style="margin-top:20px;" onclick="nextQuestion()">Next Question</button>
+      </div>
+    `;
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < quizQuestions.length) {
+      loadQuestion();
+    } else {
+      showFinalMessage();
+    }
+  }
+
+  function showFinalMessage() {
+    const container = document.querySelector('.quiz-preview');
+    container.innerHTML = `
+      <div style="background:#8ABF5A;border-radius:25px;padding:40px;text-align:center;color:white;">
+        <h2 style="font-family:'Carter One',cursive;">Awesome job!</h2>
+        <p>You discovered how each value connects to a different animal.<br>Ready for the full quiz?</p>
+        <a href="https://your-full-quiz-link-here.com" target="_blank" class="cta-button cta-primary" style="margin-top:20px;text-decoration:none;">
+          Take the Full AniMottos Quiz
+        </a>
+      </div>
+    `;
+  }
+
+  window.addEventListener('DOMContentLoaded', loadQuestion);
+  </script>
 </body>
-
 </html>
