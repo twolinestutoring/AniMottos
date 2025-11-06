@@ -282,6 +282,21 @@ html {
   transform: translateY(-2px);
 }
 
+/* === WORKBOOK PAGE === */
+.workbook-intro {
+  max-width: 700px;
+  margin: 0 auto 40px auto; /* centers the paragraph block */
+  text-align: center;
+  line-height: 1.6;
+}
+
+.workbook-intro p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
 /* === MERCH GRID === */
 .merch-grid {
   display: grid;
