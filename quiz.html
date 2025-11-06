@@ -1,119 +1,120 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz | AniMottos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | AniMottos</title>
 
-  <!-- Favicon & Brand Meta -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+    <!-- Favicon & Brand Meta -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Theme Colors for Browsers -->
-  <meta name="theme-color" content="#4BA3C3">
-  <meta name="msapplication-TileColor" content="#4BA3C3">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Theme Colors for Browsers -->
+    <meta name="theme-color" content="#4BA3C3">
+    <meta name="msapplication-TileColor" content="#4BA3C3">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <!-- Navigation -->
-    <nav class="navigation">
-      <div class="logo"><i class="fa-solid fa-otter"></i> <span id="site-title">AniMottos</span></div>
-      <div class="nav-links">
-        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="about.html"><i class="fa-solid fa-compass"></i> About</a>
-        <a class="nav-link" href="workbook.html"><i class="fa-solid fa-book-open"></i> Workbook</a>
-        <a class="nav-link active" href="quiz.html"><i class="fa-solid fa-puzzle-piece"></i> Quiz</a>
-        <a class="nav-link" href="shop.html"><i class="fa-solid fa-shirt"></i> Shop</a>
-      </div>
-    </nav>
+        <!-- Navigation -->
+        <nav class="navigation">
+            <div class="logo"><i class="fa-solid fa-otter"></i> <span id="site-title">AniMottos</span></div>
+            <div class="nav-links">
+                <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <a class="nav-link" href="about.html"><i class="fa-solid fa-compass"></i> About</a>
+                <a class="nav-link" href="workbook.html"><i class="fa-solid fa-book-open"></i> Workbook</a>
+                <a class="nav-link active" href="quiz.html"><i class="fa-solid fa-puzzle-piece"></i> Quiz</a>
+                <a class="nav-link" href="shop.html"><i class="fa-solid fa-shirt"></i> Shop</a>
+            </div>
+        </nav>
 
-    <!-- Quiz Intro -->
-    <div class="section-card">
-      <h2 class="section-title">Start Your AniMottos Journey</h2>
-      <p class="section-subtitle">
-        Answer these fun questions to discover your spirit animal and personal motto!
-      </p>
-       <a href="https://your-full-quiz-link-here.com" target="_blank" class="cta-button cta-primary" style="margin-top:20px;text-decoration:none;">
-          Take the Full AniMottos Quiz
-        </a>
+        <div class="section-card quiz-intro">
+            <h2 class="section-title">Start Your AniMottos Journey</h2>
+            <p class="section-subtitle">
+                Answer these fun questions to discover your spirit animal and personal motto!
+            </p>
+            <a class="cta-button cta-primary" href="https://your-full-quiz-link-here.com" target="_blank">
+                Take the Full AniMottos Quiz
+            </a>
+        </div>
+
+        <!-- Dynamic Quiz Container -->
+        <div class="quiz-preview"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-message">Stay Curious. Be Kind. Shine Bright!</div>
+            <p>Connect with the AniMottos community and share your character journey</p>
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </footer>
     </div>
 
-    <!-- Dynamic Quiz Container -->
-    <div class="quiz-preview"></div>
+    <!-- 4-Question Mini Quiz with Images -->
+    <script>
+        const quizQuestions = [
+            {
+                question: "When you have free time, what do you like to do?",
+                options: [
+                    { text: "🎨 Create something new", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
+                    { text: "🤝 Help a friend or sibling", animal: "Dolphin", value: "Kindness", motto: "Small acts make big waves" },
+                    { text: "🔍 Explore or learn something new", animal: "Otter", value: "Curiosity", motto: "Every day brings new discoveries" },
+                    { text: "🏆 Try something challenging or brave", animal: "Lion", value: "Courage", motto: "Courage lights the path forward" }
+                ]
+            },
+            {
+                question: "What’s your favorite way to solve a problem?",
+                options: [
+                    { text: "🧠 Think it through carefully", animal: "Owl", value: "Reflection", motto: "Wisdom grows in quiet moments" },
+                    { text: "🎨 Come up with creative ideas", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
+                    { text: "🗣️ Talk with others and share ideas", animal: "Wolf", value: "Teamwork", motto: "Together we are stronger" },
+                    { text: "💪 Keep trying until I get it", animal: "Turtle", value: "Perseverance", motto: "Slow and steady wins the race" }
+                ]
+            },
+            {
+                question: "Your teacher says a big project is due next week. You...",
+                options: [
+                    { text: "🗓️ Make a plan and get started early", animal: "Squirrel", value: "Responsibility", motto: "Prepare today for tomorrow’s success" },
+                    { text: "🎯 Wait until I feel inspired", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
+                    { text: "🙌 Ask a friend for help", animal: "Wolf", value: "Teamwork", motto: "Together we are stronger" },
+                    { text: "😌 Stay calm and take my time", animal: "Turtle", value: "Perseverance", motto: "Slow and steady wins the race" }
+                ]
+            },
+            {
+                question: "Which phrase sounds most like you?",
+                options: [
+                    { text: "💭 I love to imagine new things", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
+                    { text: "💖 I care deeply about others", animal: "Dolphin", value: "Kindness", motto: "Small acts make big waves" },
+                    { text: "🦦 I’m curious about how things work", animal: "Otter", value: "Curiosity", motto: "Every day brings new discoveries" },
+                    { text: "🦁 I’m brave when things get tough", animal: "Lion", value: "Courage", motto: "Courage lights the path forward" }
+                ]
+            }
+        ];
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-message">Stay Curious. Be Kind. Shine Bright!</div>
-      <p>Connect with the AniMottos community and share your character journey</p>
-      <div class="social-links">
-        <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="#" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </footer>
-  </div>
+        let currentQuestion = 0;
 
-  <!-- 4-Question Mini Quiz with Images -->
-  <script>
-  const quizQuestions = [
-    {
-      question: "When you have free time, what do you like to do?",
-      options: [
-        { text: "🎨 Create something new", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
-        { text: "🤝 Help a friend or sibling", animal: "Dolphin", value: "Kindness", motto: "Small acts make big waves" },
-        { text: "🔍 Explore or learn something new", animal: "Otter", value: "Curiosity", motto: "Every day brings new discoveries" },
-        { text: "🏆 Try something challenging or brave", animal: "Lion", value: "Courage", motto: "Courage lights the path forward" }
-      ]
-    },
-    {
-      question: "What’s your favorite way to solve a problem?",
-      options: [
-        { text: "🧠 Think it through carefully", animal: "Owl", value: "Reflection", motto: "Wisdom grows in quiet moments" },
-        { text: "🎨 Come up with creative ideas", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
-        { text: "🗣️ Talk with others and share ideas", animal: "Wolf", value: "Teamwork", motto: "Together we are stronger" },
-        { text: "💪 Keep trying until I get it", animal: "Turtle", value: "Perseverance", motto: "Slow and steady wins the race" }
-      ]
-    },
-    {
-      question: "Your teacher says a big project is due next week. You...",
-      options: [
-        { text: "🗓️ Make a plan and get started early", animal: "Squirrel", value: "Responsibility", motto: "Prepare today for tomorrow’s success" },
-        { text: "🎯 Wait until I feel inspired", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
-        { text: "🙌 Ask a friend for help", animal: "Wolf", value: "Teamwork", motto: "Together we are stronger" },
-        { text: "😌 Stay calm and take my time", animal: "Turtle", value: "Perseverance", motto: "Slow and steady wins the race" }
-      ]
-    },
-    {
-      question: "Which phrase sounds most like you?",
-      options: [
-        { text: "💭 I love to imagine new things", animal: "Chameleon", value: "Creativity", motto: "Blend, adapt, and create your world" },
-        { text: "💖 I care deeply about others", animal: "Dolphin", value: "Kindness", motto: "Small acts make big waves" },
-        { text: "🦦 I’m curious about how things work", animal: "Otter", value: "Curiosity", motto: "Every day brings new discoveries" },
-        { text: "🦁 I’m brave when things get tough", animal: "Lion", value: "Courage", motto: "Courage lights the path forward" }
-      ]
-    }
-  ];
+        function loadQuestion() {
+            const q = quizQuestions[currentQuestion];
+            const container = document.querySelector('.quiz-preview');
 
-  let currentQuestion = 0;
-
-  function loadQuestion() {
-    const q = quizQuestions[currentQuestion];
-    const container = document.querySelector('.quiz-preview');
-
-    container.innerHTML = `
+            container.innerHTML = `
       <div class="quiz-question">${q.question}</div>
       <div class="quiz-options">
         ${q.options.map(o => `
@@ -122,36 +123,36 @@
       </div>
       <div style="margin-top:20px;">Question ${currentQuestion + 1} of ${quizQuestions.length}</div>
     `;
-  }
+        }
 
-    function showQuizResult(animal, value, motto) {
-    const imgPath = `image/standard/${animal}.png`;
-    const container = document.querySelector('.quiz-preview');
+        function showQuizResult(animal, value, motto) {
+            const imgPath = `image/standard/${animal}.png`;
+            const container = document.querySelector('.quiz-preview');
 
-    container.innerHTML = `
+            container.innerHTML = `
         <div style="background:#FFD66B;border-radius:20px;padding:30px;text-align:center;margin:20px 0;">
         <img src="${imgPath}" alt="${animal}" style="width:120px;height:auto;margin-bottom:15px;">
         <h3 style="font-size:24px;font-family:'Carter One',cursive;color:#333;">
-            You are ${value.toLowerCase()} like a ${animal}!
+            You show ${value.toLowerCase()} like a ${animal}!
         </h3>
         <p style="font-size:18px;font-weight:bold;color:#333;margin-bottom:15px;">"${motto}"</p>
         <button class="cta-button cta-primary" style="margin-top:20px;" onclick="nextQuestion()">Next Question</button>
         </div>
     `;
-    }
+        }
 
-  function nextQuestion() {
-    currentQuestion++;
-    if (currentQuestion < quizQuestions.length) {
-      loadQuestion();
-    } else {
-      showFinalMessage();
-    }
-  }
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizQuestions.length) {
+                loadQuestion();
+            } else {
+                showFinalMessage();
+            }
+        }
 
-  function showFinalMessage() {
-    const container = document.querySelector('.quiz-preview');
-    container.innerHTML = `
+        function showFinalMessage() {
+            const container = document.querySelector('.quiz-preview');
+            container.innerHTML = `
       <div style="background:#8ABF5A;border-radius:25px;padding:40px;text-align:center;color:white;">
         <h2 style="font-family:'Carter One',cursive;">Awesome job!</h2>
         <p>You discovered how each value connects to a different animal.<br>Ready for the full quiz?</p>
@@ -160,9 +161,10 @@
         </a>
       </div>
     `;
-  }
+        }
 
-  window.addEventListener('DOMContentLoaded', loadQuestion);
-  </script>
+        window.addEventListener('DOMContentLoaded', loadQuestion);
+    </script>
 </body>
+
 </html>
