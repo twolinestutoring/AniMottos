@@ -149,39 +149,95 @@ html, body { height: 100%; }
   margin-bottom: 30px;
 }
 
-/* === QUIZ PAGE === */
-.quiz-container {
-  width: 100%;
-  background: linear-gradient(180deg, #D7E3E6 0%, #BFD2D5 100%);
-  padding: 60px 10%;
+/* === JOURNEY STEPS === */
+.journey-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.journey-step {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 20px;
+  background: #4BA3C3;
+  color: white;
+  border-radius: 20px;
+  position: relative;
+}
+
+.journey-step::after {
+  content: '→';
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #4BA3C3;
+}
+
+.journey-step:last-child::after {
+  display: none;
+}
+
+.step-number {
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-weight: bold;
+}
+
+
+/* === QUIZ STYLES === */
+.quiz-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.quiz-intro p { max-width: 600px; margin: 0 auto 20px; }
+.quiz-preview {
+  background: #8ABF5A;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  margin: 30px 0;
+  color: white;
+}
 
 .quiz-question {
-  font-family: 'Carter One', cursive;
   font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
+  font-family: 'Carter One', cursive;
+  color: white;
+  margin-bottom: 30px;
 }
 
 .quiz-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
-  justify-content: center;
 }
 
 .quiz-option {
-  background: #fff;
+  padding: 15px 20px;
+  background: white;
   border: 3px solid transparent;
   border-radius: 15px;
-  padding: 15px;
   cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  color: #333;
 }
+
 .quiz-option:hover {
   border-color: #4BA3C3;
   transform: translateY(-2px);
