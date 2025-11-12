@@ -60,15 +60,76 @@ html, body { height: 100%; }
 .hero {
   position: relative;
   width: 100%;
-  min-height: 85vh;
+  min-height: 70vh;
   background: linear-gradient(180deg, #BFE5ED 0%, #D7ECF2 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-  padding: 140px 20px 100px;
+  padding: 120px 20px 100px;
+  box-sizing: border-box;
+}
+
+/* Title and subtitle styling */
+.hero-title {
+  font-family: 'Carter One', cursive;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button color styles */
+.cta-primary {
+  background: #F9C94E;
+  color: #333;
+}
+
+.cta-primary:hover {
+  background: #f7b91c;
+}
+
+.cta-secondary {
+  background: #E0E7EA;
+  color: #333;
+}
+
+.cta-secondary:hover {
+  background: #CFD8DC;
+}
+
+.cta-tertiary {
+  background: #4BA3C3;
+  color: white;
+}
+
+.cta-tertiary:hover {
+  background: #3a8aa8;
 }
 
 .hero::before {
@@ -281,6 +342,46 @@ html, body { height: 100%; }
 .animal-card:hover { transform: translateY(-5px); }
 .animal-img-wrapper { height: 120px; display: flex; align-items: center; justify-content: center; }
 .animal-img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+/* === MERCH GRID === */
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.merch-item {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.merch-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.merch-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.merch-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.merch-description {
+  color: #666;
+  font-size: 14px;
+}
 
 /* === FOOTER === */
 .footer {
