@@ -1,73 +1,84 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AniMottos - Wear Your Character on Your Sleeve</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AniMottos – Wear Your Character on Your Sleeve</title>
 
-    <!-- Favicon & Brand Meta -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
+  <!-- Favicon & Brand Meta -->
+  <link rel="icon" type="image/webp" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
 
-    <!-- Theme Colors for Browsers -->
-    <meta name="theme-color" content="#4BA3C3">
-    <meta name="msapplication-TileColor" content="#4BA3C3">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Theme Colors for Browsers -->
+  <meta name="theme-color" content="#4BA3C3" />
+  <meta name="msapplication-TileColor" content="#4BA3C3" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <!-- Social / Search Preview -->
-    <meta property="og:title" content="AniMottos – Wear Your Character on Your Sleeve">
-    <meta property="og:description" content="Discover your inner animal, embrace your values, and wear your motto with pride.">
-    <meta property="og:image" content="favicon.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com/">
+  <!-- Social / Search Preview -->
+  <meta property="og:title" content="AniMottos – Wear Your Character on Your Sleeve" />
+  <meta property="og:description" content="Discover your inner animal, embrace your values, and wear your motto with pride." />
+  <meta property="og:image" content="image/animottos-hero.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://twolinestutoring.github.io/AniMottos/" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome Icons -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Tmjq6QkpbiSNtWZJ9MuyaH1JX7aCkFj1ghOLVLJm2cA1cUQpE9mxEJ4mblxjX1X7E7pBS/8c8M2UFWlpR9Nf7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
 
     <!-- Navigation -->
     <nav class="navigation">
-      <div class="logo"><i class="fa-solid fa-otter"></i> <span id="site-title">AniMottos</span></div>
+      <div class="logo">
+        <i class="fa-solid fa-otter"></i> 
+        <span id="site-title">AniMottos</span>
+      </div>
       <div class="nav-links">
-        <a class="nav-link active" href="index.html">
-          <i class="fa-solid fa-house"></i> Home
-        </a>
-        <a class="nav-link" href="about.html">
-          <i class="fa-solid fa-compass"></i> About
-        </a>
-        <a class="nav-link" href="workbook.html">
-          <i class="fa-solid fa-book-open"></i> Workbook
-        </a>
-        <a class="nav-link" href="quiz.html">
-          <i class="fa-solid fa-puzzle-piece"></i> Quiz
-        </a>
-        <a class="nav-link" href="shop.html">
-          <i class="fa-solid fa-tshirt"></i> Shop
-        </a>
+        <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="nav-link" href="about.html"><i class="fa-solid fa-compass"></i> About</a>
+        <a class="nav-link" href="workbook.html"><i class="fa-solid fa-book-open"></i> Workbook</a>
+        <a class="nav-link" href="quiz.html"><i class="fa-solid fa-puzzle-piece"></i> Quiz</a>
+        <a class="nav-link" href="shop.html"><i class="fa-solid fa-tshirt"></i> Shop</a>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-banner">
-      <h1 class="hero-title">Wear Your Character on Your Sleeve!</h1>
-      <p class="hero-subtitle">Find your character, embrace your values, and wear your motto with pride</p>
-      <div class="cta-buttons">
-        <a class="cta-button cta-primary" href="quiz.html">Take the Quiz</a>
-        <a class="cta-button cta-secondary" href="workbook.html">Explore the Workbook</a>
-        <a class="cta-button cta-tertiary" href="shop.html">Shop Merch</a>
+    <section class="hero">
+      <!-- Bubbles -->
+      <div class="hero-bubbles">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-    </div>
+
+      <!-- Hero Image -->
+      <div class="hero-overlay">
+        <img src="images/animottos-hero.webp" alt="AniMottos Logo and Pebble the Otter" class="hero-image" />
+      </div>
+
+      <!-- Hero Text -->
+      <div class="hero-content">
+        <h2>Discover Your Inner Motto</h2>
+        <p>
+          A journey of playful self-discovery where kids explore their 
+          <strong>values</strong>, <strong>traits</strong>, and <strong>strengths</strong> — 
+          then wear them with pride.
+        </p>
+        <div class="cta-group">
+          <a href="quiz.html" class="cta-primary">
+            <i class="fa-solid fa-puzzle-piece"></i> Take the Quiz
+          </a>
+          <a href="workbook.html" class="cta-secondary">
+            <i class="fa-solid fa-book"></i> Explore Workbook
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Journey Section -->
     <div class="section-card">
@@ -75,23 +86,23 @@
       <div class="journey-steps">
         <div class="journey-step">
           <div class="step-number">1</div>
-          <h3>Take Quiz</h3>
+          <h3>Take the Quiz</h3>
           <p>Answer fun questions to discover your character traits</p>
         </div>
         <div class="journey-step">
           <div class="step-number">2</div>
           <h3>Get your AniMotto</h3>
-          <p>Match your personality traits with an animal & create a motto</p>
+          <p>Match your personality traits with an animal & create your motto</p>
         </div>
         <div class="journey-step">
           <div class="step-number">3</div>
           <h3>Wear It</h3>
-          <p>Express yourself with custom merchandise</p>
+          <p>Express yourself with custom merchandise that shares your values</p>
         </div>
         <div class="journey-step">
           <div class="step-number">4</div>
           <h3>Use Workbook</h3>
-          <p>Grow your character with weekly activities</p>
+          <p>Grow your character with weekly stories, art, and reflection</p>
         </div>
       </div>
     </div>
@@ -116,6 +127,7 @@
         </a>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
