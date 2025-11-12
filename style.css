@@ -36,6 +36,11 @@ html, body { height: 100%; }
   gap: 10px;
 }
 
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+
 .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
 
 .nav-link {
@@ -135,6 +140,7 @@ html, body { height: 100%; }
 .cta-secondary { background: #4BA3C3; color: #fff; }
 .cta-primary:hover, .cta-secondary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
+
 /* === SECTION CARDS === */
 .section-card {
   background: #fff;
@@ -203,31 +209,40 @@ html, body { height: 100%; }
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 1.5rem;
 }
 
+/* Center the main quiz card */
 .quiz-preview {
   background: #8ABF5A;
   border-radius: 25px;
   padding: 40px;
   text-align: center;
-  margin: 30px 0;
+  margin: 30px auto;            /* centers the block */
   color: white;
-  width: 80%; 
+  width: 90%;                   /* responsive width */
+  max-width: 650px;             /* prevents it from stretching too wide */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Question text */
 .quiz-question {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-family: 'Carter One', cursive;
   color: white;
   margin-bottom: 30px;
+  line-height: 1.3;
 }
 
+/* Options grid */
 .quiz-options {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
   gap: 15px;
 }
 
+/* Option buttons */
 .quiz-option {
   padding: 15px 20px;
   background: white;
@@ -237,6 +252,7 @@ html, body { height: 100%; }
   transition: all 0.3s ease;
   font-weight: bold;
   color: #333;
+  text-align: center;
 }
 
 .quiz-option:hover {
