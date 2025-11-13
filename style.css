@@ -17,6 +17,7 @@ body {
 html,
 body {
   height: 100%;
+  padding-top: 70px;
 }
 
 /* === FIXED NAVIGATION === */
@@ -25,14 +26,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  /* z-index: 100; */
+  height: 70px;
+  padding: 0 20px;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  /* padding: 15px 40px; */
 }
 
 .brand {
@@ -405,7 +408,7 @@ body {
   color: white;
   width: 90%;
   /* responsive width */
-  max-width: 650px;
+  max-width: 750px;
   /* prevents it from stretching too wide */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
@@ -563,18 +566,22 @@ body {
 
 /* === MOBILE HAMBURGER MENU === */
 .hamburger {
-  display: none;
+  display: none;              
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 40px; height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1100;
+  padding: 0;
+  z-index: 300;
 }
 
 .hamburger span {
   width: 28px;
   height: 3px;
+  margin: 4px 0;
   background: #4BA3C3;
   border-radius: 3px;
   transition: 0.3s ease;
@@ -582,7 +589,7 @@ body {
 
 /* Animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -590,7 +597,7 @@ body {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* --- NAV MOBILE LAYOUT --- */
@@ -619,17 +626,17 @@ body {
     position: absolute;
     top: 70px;
     left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    display: flex;
+    width: 90%;
+    max-width: 200px;
+    background: white;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    padding: 20px 0;
 
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.35s ease;
+    transition: all 0.35s ease-out;
   }
 
   .nav-links.open {
