@@ -1,6 +1,4 @@
-/* =========================================================
-   BASE STYLES
-   ========================================================= */
+/* === BASE STYLES === */
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500;600&display=swap');
 
 * {
@@ -16,31 +14,27 @@ body {
   overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  padding-top: 70px;   /* keeps content below fixed nav */
+  padding-top: 70px;
 }
 
-/* =========================================================
-   NAVIGATION (DESKTOP)
-   ========================================================= */
+/* === NAVIGATION === */
 .navigation {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
-
+  z-index: 1000;
+  /* height: 70px; */
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 0 20px;
-  z-index: 200;
+  padding: 15px 40px;
 }
 
 .brand {
@@ -48,15 +42,24 @@ html, body {
   align-items: center;
 }
 
+/* .logo {
+  font-family: 'Carter One', cursive;
+  color: #4BA3C3;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+} */
+
 .nav-logo {
-  height: 48px;
+  height: 45px;
   width: auto;
 }
 
-/* Desktop menu links */
 .nav-links {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -75,98 +78,11 @@ html, body {
 }
 
 .nav-link.active {
-  background: #FFD66B;
+  background: #b8935d;
   color: #333;
 }
 
-/* =========================================================
-   HAMBURGER (MOBILE)
-   ========================================================= */
-.hamburger {
-  display: none; /* shown only on mobile */
-  width: 32px;
-  height: 28px;
-  flex-direction: column;
-  justify-content: space-between;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 300; /* above dropdown */
-}
-
-.hamburger span {
-  width: 100%;
-  height: 4px;
-  background: #4BA3C3;
-  border-radius: 4px;
-  transition: 0.3s;
-}
-
-/* Hamburger animation → X */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(12px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-12px) rotate(-45deg);
-}
-
-/* =========================================================
-   MOBILE MENU (RIGHT-SIDE DROPDOWN)
-   ========================================================= */
-@media (max-width: 768px) {
-
-  .nav-links {
-    position: absolute;
-    top: 70px;              /* directly under navbar */
-    right: 15px;            /* dropdown aligns with hamburger */
-    width: 220px;
-    padding: 15px 0;
-
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-
-    flex-direction: column;
-    gap: 10px;
-
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-
-    transition: all 0.35s ease-out;
-    z-index: 250;
-  }
-
-  /* When menu opens */
-  .nav-links.open {
-    max-height: 500px;
-    opacity: 1;
-  }
-
-  .nav-link {
-    width: 100%;
-    text-align: center;
-    padding: 12px 0;
-    border-radius: 0;
-  }
-
-  /* hide desktop-style menu */
-  .navigation {
-    justify-content: space-between;
-    padding: 0 15px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-/* =========================================================
-   HERO (unchanged)
-   ========================================================= */
+/* === HERO === */
 .hero {
   position: relative;
   width: 100%;
@@ -176,83 +92,442 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 120px 20px 100px;
   text-align: center;
+  padding: 120px 20px 100px;
+  box-sizing: border-box;
+  F
 }
 
+/* Title and subtitle styling */
 .hero-title {
   font-family: 'Carter One', cursive;
   font-size: 2.5rem;
+  color: #333;
   margin-bottom: 20px;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  max-width: 600px;
+  color: #444;
   margin-bottom: 40px;
+  max-width: 600px;
 }
 
-/* Buttons */
+/* CTA Buttons */
 .cta-buttons {
   display: flex;
-  gap: 15px;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 15px;
 }
 
 .cta-button {
+  display: inline-block;
   padding: 14px 28px;
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button color styles */
+.cta-primary {
+  background: #F9C94E;
+  color: #333;
+}
+
+.cta-primary:hover {
+  background: #f7b91c;
+}
+
+.cta-secondary {
+  background: #E0E7EA;
+  color: #333;
+}
+
+.cta-secondary:hover {
+  background: #CFD8DC;
+}
+
+.cta-tertiary {
+  background: #4BA3C3;
+  color: white;
+}
+
+.cta-tertiary:hover {
+  background: #3a8aa8;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 80%);
+  animation: shimmer 20s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.5;
+  }
+
+  100% {
+    background-position: 100% 100%;
+    opacity: 0.8;
+  }
+}
+
+/* Floating bubbles */
+.hero-bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bubbles span {
+  position: absolute;
+  bottom: -10%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: bubbleRise linear infinite;
+  opacity: 0;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-50vh) scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.hero-bubbles span:nth-child(1) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-duration: 22s;
+}
+
+.hero-bubbles span:nth-child(2) {
+  left: 25%;
+  width: 14px;
+  height: 14px;
+  animation-duration: 18s;
+  animation-delay: 3s;
+}
+
+.hero-bubbles span:nth-child(3) {
+  left: 40%;
+  width: 10px;
+  height: 10px;
+  animation-duration: 20s;
+  animation-delay: 6s;
+}
+
+.hero-bubbles span:nth-child(4) {
+  left: 60%;
+  width: 24px;
+  height: 24px;
+  animation-duration: 24s;
+}
+
+.hero-bubbles span:nth-child(5) {
+  left: 75%;
+  width: 18px;
+  height: 18px;
+  animation-duration: 26s;
+}
+
+.hero-bubbles span:nth-child(6) {
+  left: 90%;
+  width: 12px;
+  height: 12px;
+  animation-duration: 19s;
+  animation-delay: 8s;
+}
+
+.hero-image {
+  max-width: 420px;
+  width: 80%;
+  z-index: 2;
+  margin-bottom: 25px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.hero-content h2 {
+  font-family: 'Carter One', cursive;
+  font-size: 48px;
+  color: #4BA3C3;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-primary,
+.cta-secondary {
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
   transition: 0.3s;
 }
 
-.cta-primary { background: #F9C94E; color: #333; }
-.cta-secondary { background: #E0E7EA; color: #333; }
-.cta-tertiary { background: #4BA3C3; color: #fff; }
+.cta-primary {
+  background: #FFD66B;
+  color: #333;
+}
 
-/* =========================================================
-   SECTION CARDS, JOURNEY, QUIZ, ANIMALS, FOOTER
-   (Your original code kept as-is but cleaned slightly)
-   ========================================================= */
+.cta-secondary {
+  background: #4BA3C3;
+  color: #fff;
+}
 
-/* Section card */
+.cta-primary:hover,
+.cta-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* === SECTION CARDS === */
 .section-card {
   background: #fff;
+  width: 100%;
   padding: 80px 10%;
   text-align: center;
-  width: 100%;
 }
 
 .section-title {
   font-family: 'Carter One', cursive;
-  font-size: 36px;
   color: #4BA3C3;
+  font-size: 36px;
   margin-bottom: 30px;
 }
 
-/* Journey steps */
+/* === JOURNEY STEPS === */
 .journey-steps {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
+  margin: 30px 0;
 }
 
 .journey-step {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 20px;
   background: #4BA3C3;
   color: white;
   border-radius: 20px;
-  padding: 20px;
-  min-width: 220px;
-  flex: 1;
+  position: relative;
+}
+
+.journey-step::after {
+  content: '→';
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #4BA3C3;
+}
+
+.journey-step:last-child::after {
+  display: none;
+}
+
+.step-number {
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-weight: bold;
+}
+
+
+/* === QUIZ STYLES === */
+.quiz-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* Center the main quiz card */
+.quiz-preview {
+  background: #8ABF5A;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  margin: 30px auto;
+  /* centers the block */
+  color: white;
+  width: 90%;
+  /* responsive width */
+  max-width: 750px;
+  /* prevents it from stretching too wide */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Question text */
+.quiz-question {
+  font-size: 1.5rem;
+  font-family: 'Carter One', cursive;
+  color: white;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+/* Options grid */
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Option buttons */
+.quiz-option {
+  padding: 15px 20px;
+  background: white;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  color: #333;
   text-align: center;
 }
 
-/* Footer */
+.quiz-option:hover {
+  border-color: #4BA3C3;
+  transform: translateY(-2px);
+}
+
+/* === ABOUT / MEET THE ANIMALS === */
+.animal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 40px 5%;
+}
+
+.animal-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+  width: 180px;
+  transition: 0.3s;
+}
+
+.animal-card:hover {
+  transform: translateY(-5px);
+}
+
+.animal-img-wrapper {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* === MERCH GRID === */
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.merch-item {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.merch-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.merch-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.merch-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.merch-description {
+  color: #666;
+  font-size: 14px;
+}
+
+/* === FOOTER === */
 .footer {
   background: linear-gradient(180deg, #4BA3C3 0%, #3a8ca8 100%);
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 60px 0;
 }
@@ -273,16 +548,142 @@ html, body {
 .social-link {
   width: 45px;
   height: 45px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
+  justify-content: center;
   font-size: 20px;
+  color: #fff;
+  text-decoration: none;
   transition: 0.3s;
 }
+
 .social-link:hover {
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.35);
   transform: translateY(-3px);
+}
+
+/* === HAMBURGER BUTTON === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1100;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #4BA3C3;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+/* Hamburger → X animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* --- NAV MOBILE LAYOUT --- */
+@media (max-width: 768px) {
+
+  /* Navigation bar layout */
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    /* logo left, burger right */
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hamburger stays on the far right */
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+    z-index: 300;
+  }
+
+  /* Mobile dropdown menu */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    /* ⭐ open BELOW and ALIGNED with the hamburger */
+    width: 220px;
+    background: white;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.35s ease-out;
+    z-index: 250;
+  }
+
+  /* Menu Open */
+  .nav-links.open {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  /* Each mobile link */
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+}
+
+
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .journey-steps {
+    flex-direction: column;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .navigation {
+    flex-direction: column;
+    padding: 15px 20px;
+    text-align: center;
+  }
 }
